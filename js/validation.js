@@ -1,9 +1,10 @@
 import { VALID_SYMBOLS, MAX_HASHTAGS_LENGTH } from './constants.js';
+
 const form = document.querySelector('.img-upload__form');
 const hashtagField = document.querySelector('.text__hashtags');
 const errorMassege = 'поле хештегов заполнено неверно';
 
-export const pristine = new Pristine(form, {
+const pristine = new Pristine(form, {
   classTo: 'img-upload__field-wrapper',
   errorTextParent: 'img-upload__field-wrapper',
   errorTextClass: 'hashtag-error'
@@ -31,4 +32,6 @@ pristine.addValidator(
 
 const isValid = () => pristine.validate();
 
-export { isValid };
+const reset = () => pristine.reset();
+
+export { isValid, reset };
